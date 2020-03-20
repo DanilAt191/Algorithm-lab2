@@ -282,22 +282,6 @@ void DisplayChoise(Patient* Massive, int Dimension, char* SexTag, int LowAge, in
 		}
 	}
 }
-void SortFirstName(Patient* Massive, int Dimension)
-{
-	Patient Temp;
-	for (size_t i = 0; i <= Dimension; i++)
-	{
-		for (size_t q = Dimension - 1; q > i; q--)
-		{
-			if (strcmp(Massive[q].FirstName, Massive[q - 1].FirstName) < 0)
-
-				Temp = Massive[q];
-			Massive[q] = Massive[q - 1];
-			Massive[q - 1] = Temp;
-
-		}
-	}
-}
 
 void DisplayPerson(Patient Man)
 {
@@ -314,6 +298,22 @@ void DisplayPerson(Patient Man)
 	cout << "Номер мед карты: " << Man.MedCard << endl;
 	cout << "Группа крови: " << Man.Blood << endl;
 	cout << "Диагноз: " << Man.Diagnosis << "\n\n";
+}
+void SortFirstName(Patient* Massive, int Dimension)
+{
+	Patient Temp;
+	for (size_t i = 0; i <= Dimension; i++)
+	{
+		for (size_t q = Dimension - 1; q > i; q--)
+		{
+			if (strcmp(Massive[q].FirstName, Massive[q - 1].FirstName) < 0)
+
+				Temp = Massive[q];
+			Massive[q] = Massive[q - 1];
+			Massive[q - 1] = Temp;
+
+		}
+	}
 }
 
 int& CheckCorectDigitValue(int& value)
